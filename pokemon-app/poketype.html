@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pok&eacute; Type Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/poketype.css">
+</head>
+<body>
+    <header>
+        <h1>Pok&eacute; Type Calculator</h1>
+        <a><img src="ball.png" alt="pokeball"></a>
+    </header>
+    <p>
+        <h2 id="battle" class="col-xs-12 col-med-4">What kind of battle?</h2>
+    </p>
+    <div id="battle-buttons" class="col-xs-12">    
+        <input id="normal" type="button" value="Normal">
+        <input id="inverse" type="button" value="Inverse">
+    </div>
+    <div id="search-option">
+        <h2 id="search" class="col-xs-12">Search by Pok&eacute;mon Name or Type?</h2>
+    </div>
+    <form action="ptc-2.html" id="name-div" class="col-xs-6" method="GET">
+        <label id="name-text" list="pokemon-list">By Name:</label>
+        <datalist id="pokemon-list"></datalist>
+        <input id="name" name="name" type="text" placeholder="Name" list="pokemon-list">
+        <input id="submit" type="button" value="Search" onclick='handleSubmitName()'>
+    </form>
+    <form action="ptc-3.html" id="type-div" class="col-xs-6" name="pokemon-type" method="GET">
+        <label id="type-text">By Type:</label>
+        <datalist id="types">
+            <option>normal</option>
+            <option>fighting</option>
+            <option>flying</option>
+            <option>poison</option>
+            <option>ground</option>
+            <option>rock</option>
+            <option>bug</option>
+            <option>ghost</option>
+            <option>steel</option>
+            <option>fire</option>
+            <option>water</option>
+            <option>grass</option>
+            <option>electric</option>
+            <option>psychic</option>
+            <option>ice</option>
+            <option>dragon</option>
+            <option>dark</option>
+            <option>fairy</option>
+            <option>none</option>
+        </datalist>
+        <input id="type1" name="type1" type="text" placeholder="Type 1" list="types">
+        <input id="type2" name="type2" type="text" placeholder="Type 2" list="types">
+        <input id="submit" type="button" value="Search" onclick="handleSubmitTypes()">
+    </form>
+    <script src="javascript/poketype.js"></script>
+</body>
+</html>

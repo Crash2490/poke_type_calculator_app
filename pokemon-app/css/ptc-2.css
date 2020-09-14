@@ -1,0 +1,318 @@
+body{
+    padding: 1%;
+    margin: 1%;
+}
+
+h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+#pokeball{
+    display: block;
+    width: 40px;    
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+}
+
+#left{
+    display: block;
+    width: 45%;
+    height: 900px;
+    float: left;
+    border: 2px solid black;
+    background: blue;
+    background-image: linear-gradient(teal, white);
+    margin: 2%;
+    text-align: center;
+    font-weight: bold;
+    padding: 2%;
+}
+
+#img-container{
+    display: inline-block;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-right: 5%; 
+}
+
+#sprite{
+    display: inline-block;
+    width: 160px;
+}
+
+#name{
+    display: block;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: large;
+    color: black;
+}
+
+#ball{
+    display: inline-block;
+    width: 15px;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-right: 2%;
+}
+
+#dex-num{
+    display: inline-block;
+    margin-right: 1%;
+}
+
+#name-val{
+    display: inline-block;
+}
+
+
+#type{
+    display: inline-block;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: large;
+    color: black;
+}
+
+#type-text{
+    display: inline-block;
+}
+
+#type-values{
+    display: block;
+    width: 45%;
+    height: 900px;
+    border: 2px solid black;
+    background: blue;
+    background-image: linear-gradient(rgb(255, 166, 0), white);
+    font-weight: bold;
+    font-size: large;
+    margin: 2%;
+    text-align: center;
+    padding: 2%; 
+}
+
+/* 
+.value{
+    display: inline-block;
+    margin-top: 3%;
+} */
+
+.value .type_divs {
+    display: inline-block;
+    margin-top: 3%;
+}
+
+#normal{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #c6c6a7;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#fighting{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #C03028;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#flying{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #A890F0;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#poison{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #A040A0;
+    border-radius: 12%;
+    color: white;
+    margin: 1%;
+    padding: 1%;
+}
+
+#ground{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #E0C068;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#rock{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #B8A038;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#bug{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #A8B820;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#ghost{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #705898;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#steel{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #B8B8D0;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#fire{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #F08030;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#water{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #6890F0;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#grass{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #78C850;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#electric{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #F8D030;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#psychic{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #F85888;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#ice{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #98D8D8;
+    border-radius: 12%;
+    color: white;
+    margin: 1%;
+    padding: 1%;
+}
+
+#dragon{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #7038F8;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#dark{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #705848;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#fairy{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: #EE99AC;
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+#none{
+    display: inline-block;
+    width: 7em;
+    border: 2px solid black;
+    background-color: rgb(128, 127, 127);
+    border-radius: 12%;
+    color: white;
+    margin: 2px;
+    padding: 1%;
+}
+
+
