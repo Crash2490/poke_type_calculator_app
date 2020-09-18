@@ -17,39 +17,6 @@ img{
     border-radius: 50%;
 }
 
-#battle{
-    display: inline;
-    margin: 1%;
-    font-size: x-large;
-}
-
-#battle-buttons{
-    display: block;
-    width: 94%;
-    height: 100px;
-    float: left;
-    border: 2px solid black;
-    background-color: purple;
-    background-image: linear-gradient(teal, black);
-    margin: 2%;
-    text-align: center;
-    font-weight: bold;
-    font-size: large;
-    padding: 1%;
-}
-
-#normal{
-    display: inline-block;
-    width: 20%;
-    margin-top: 20px;
-}
-
-#inverse{
-    display: inline-block;
-    width: 20%;
-    margin-top: 20px;
-}
-
 #search{
     display: inline-block;
     font-size: x-large;
@@ -59,22 +26,27 @@ img{
 #name-div{
     display: block;
     width: 45%;
-    height: 900px;
-    float: left;
+    height: 400px;
     border: 2px solid black;
     background: blue;
-    background-image: linear-gradient(violet, black);
+    background-image: linear-gradient(to right, #48D1CC, #FFD1BA, #CE7DA5);
     margin: 2%;
-    margin-bottom: 2%;
-    text-align: center;
+    float: left;
     font-size: large;
     padding: 2%;
 }
 
+.name{
+    display: block;
+    width: 50%;
+    margin-top: 2%;
+    margin-left: 4.5rem;
+}
+
 #name-text{
     display: inline-block;
-    width: 120px;
-    margin-top: 20px;
+    width: 110px;
+    margin: 1%;
     font-weight: bold; 
     color: black;
 }
@@ -83,24 +55,31 @@ img{
     width: 120px;
 }
 
+
 #type-div{
     display: block;
     width: 45%;
-    height: 900px;
+    height: 400px;
     border: 2px solid black;
     background: red;
-    background-image: linear-gradient(rgb(255, 166, 0), black);
-    margin:2%;
-    margin-bottom: 2%;
-    text-align: center;
+    background-image: linear-gradient(to right, #48D1CC, #FFD1BA, #CE7DA5);
+    margin: 2%;
+    float: left;
     font-size: large;
     padding: 2%;
 }
 
+.type{
+    display: block;
+    width: 50%;
+    margin-top: 2%;
+    margin-left: 4.5rem;
+}
+
 #type-text{
     display: inline-block;
-    width: 120px;
-    margin-top: 20px;
+    width: 110px;
+    margin: 1%;
     font-weight: bold; 
     color: black;
 } 
@@ -113,7 +92,37 @@ img{
     width: 120px;
 }
 
+.battle-type{
+    display: block;
+    width: 50%;
+    margin-top: 2%;
+    margin-left: 4.5rem;
+}
+
+#battletype-text{
+    display: inline-block;
+    width: 130px;
+    margin: 1%;
+    margin-top: 2%;
+    font-weight: bold; 
+    color: black;
+}
+
+.battletype{
+    display: inline-block;
+    width: 30px;
+    margin-top: 10px;
+    color: black;
+}
+
+.submit{
+    display: block;
+    width: 50%;
+    margin-left: 4.5rem;
+}
+
 #submit{
+    display: inline-block;
     width: 120px;
-    margin-top: 10px;  
+    margin-top: 5%;  
 }

@@ -17,7 +17,6 @@ def get_pokemon_info_urls(url):
 def create_pokemon_list(url_list):
     pokemon_list = []
     for pokeapi_url in url_list:
-        print(pokeapi_url)
         mypokemon = Pokemon()
         r = requests.get(url=pokeapi_url)
         poke_dict = r.json()
@@ -28,7 +27,7 @@ def create_pokemon_list(url_list):
         if len(poke_dict['types']) == 2:
             mypokemon.type2 = poke_dict['types'][1]['type']['name']
         mypokemon.sprite = poke_dict['sprites']['front_default']
-        mypokemon.type_values = weakness(mypokemon.type1, mypokemon.type2)
+        mypokemon.type_values = weakness('normal', mypokemon.type1, mypokemon.type2)
         pokemon_list.append(mypokemon)
     return pokemon_list
 
@@ -40,7 +39,7 @@ def commit_pokemon_to_db(pokemon_list):
 
 db.drop_all()
 db.create_all()
-api_url = 'https://pokeapi.co/api/v2/pokemon?limit=810'
+api_url = 'https://pokeapi.co/api/v2/pokemon?limit=807'
 url_list = get_pokemon_info_urls(api_url)
 pokemon_list = create_pokemon_list(url_list)
 commit_pokemon_to_db(pokemon_list)
