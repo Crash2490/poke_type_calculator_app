@@ -6,6 +6,10 @@ var urlParams = new URLSearchParams(window.location.search);
 const name = (urlParams.get('name'));
 const battletype = (urlParams.get('battletype'));
 
+const params = new URLSearchParams(window.location.search);
+const battle = params.get('battletype');
+console.log(battle)
+
 var request = new XMLHttpRequest();
 
 request.open('GET', 'http://127.0.0.1:5000/pokemon/'+ name + '?battletype=' + battletype, true);
@@ -15,10 +19,10 @@ request.onload = function () {
   pokemon = data.data.attributes;  
   console.log(pokemon);
 
-  if (battletype === 'normal'){
+  if (battle === 'normal') {
     var object = pokemon.type_values;
-  } else if (battletype === 'inverse') {
-    var object = pokemon.inver_type_vals;
+  } else if (battle === 'inverse') {
+    var object = pokemon.weaknesses;
   }
   console.log(object)
   
@@ -123,10 +127,12 @@ request.onload = function () {
   type_text.textContent = 'Type: ';
   container_3.appendChild(type_text);
 
-  createSingleTypeDiv(container_3, pokemon.type1)
-  createSingleTypeDiv(container_3, pokemon.type2)
+  createSingleTypeDiv(container_3, pokemon.type1);
 
-  
+  if (pokemon.type2 !== 'null') {
+    createSingleTypeDiv(container_3, pokemon.type2);
+  } 
+
   const types_4 = getKeyByValue(object, 4);
   if (types_4.length != 0) {
     const vve_tv_text = document.createElement('p');
@@ -182,6 +188,7 @@ request.onload = function () {
     ne_tv_text.textContent = '0x Damage:';
     container_9.appendChild(ne_tv_text);
     createManyTypeDivs(container_9, types_0);
+    
   }
 }
 

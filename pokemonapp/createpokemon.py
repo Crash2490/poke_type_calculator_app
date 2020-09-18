@@ -26,8 +26,11 @@ def create_pokemon_list(url_list):
         mypokemon.type1 = poke_dict['types'][0]['type']['name']
         if len(poke_dict['types']) == 2:
             mypokemon.type2 = poke_dict['types'][1]['type']['name']
+        else:
+            mypokemon.type2 = 'null'
         mypokemon.sprite = poke_dict['sprites']['front_default']
         mypokemon.type_values = weakness('normal', mypokemon.type1, mypokemon.type2)
+        mypokemon.weaknesses = weakness('inverse', mypokemon.type1, mypokemon.type2)
         pokemon_list.append(mypokemon)
     return pokemon_list
 

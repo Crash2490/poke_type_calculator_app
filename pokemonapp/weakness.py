@@ -68,7 +68,7 @@ def dual_type_calc(type1_dict, type2_dict):
 def weakness(battletype, type1, type2):
     """Takes Pokemon and returns the values of opposing types."""
     if battletype == 'normal':
-        if type2 is not None:
+        if type2 != 'null':
             t1_dict = type_val_lst[type1]
             t2_dict = type_val_lst[type2]
             type_values = dual_type_calc(t1_dict, t2_dict)
@@ -77,7 +77,7 @@ def weakness(battletype, type1, type2):
             type_values = type_val_lst[type1]
             return type_values
     elif battletype == 'inverse':
-        if type2 is not None:
+        if type2 != 'null':
             t1_dict = type_val_lst[type1]
             t2_dict = type_val_lst[type2]
             type_values = dual_type_calc(t1_dict, t2_dict)
@@ -98,3 +98,9 @@ def inverse(type_values):
         else:
             inver_type_vals[typ] = value
     return dict(inver_type_vals)
+
+def type_vals(battletype):
+    if battletype == 'normal':
+        return weaknesses
+    else:
+        return type_values

@@ -24,6 +24,7 @@ class Pokemon(db.Model):
     type2 = db.Column(db.String)
     sprite = db.Column(db.String)
     type_values = db.Column(db.JSON)
+    weaknesses = db.Column(db.JSON)
 
 
     def __str__(self):
@@ -52,6 +53,7 @@ class PokemonSchema(Schema):
     type2 = fields.Str()
     sprite = fields.Str()
     type_values = fields.Dict()
+    weaknesses = fields.Dict()
 
 # Create resource managers and endpoints
 class PokemonMany(ResourceList):
@@ -73,15 +75,11 @@ api.route(PokemonOne, 'pokemon_one', '/pokemon/<int:id>')
 
 @app.route("/pokemon/<string:name>")
 def user_detail(name):
-    battletype = request.args.get('battletype')
 
     schema = PokemonSchema()
     p = Pokemon.query.filter_by(name=name).first()
     pdict = schema.dump(p).data
 
-    type1 = pdict['data']['attributes']['type1']
-    type2 = pdict['data']['attributes']['type2']
-    pdict['data']['attributes']['inver_type_vals'] = weakness(battletype, type1, type2)
     return pdict
 
 
@@ -89,7 +87,7 @@ def user_detail(name):
 def get_weakness(type1, type2):
     battletype = request.args.get('battletype')
     if type2 == 'none':
-        type2 = None
+        type2 = 'null'
     return weakness(battletype, type1, type2)
 
 # main loop to run app in debug mode
