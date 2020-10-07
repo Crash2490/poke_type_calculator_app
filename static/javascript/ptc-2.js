@@ -1,21 +1,31 @@
-const app_left = document.getElementById('opponent')
+const app_left = document.getElementById('left')
 const app_right = document.getElementById('type-values')
 
 var urlParams = new URLSearchParams(window.location.search);
 
-const type1 = (urlParams.get('type1')); 
-const type2 = (urlParams.get('type2'));
+const name = (urlParams.get('name'));
 const battletype = (urlParams.get('battletype'));
 
+const params = new URLSearchParams(window.location.search);
+const battle = params.get('battletype');
+console.log(battle)
 
 var request = new XMLHttpRequest();
 
-request.open('GET', 'http://127.0.0.1:5000/'+ type1 + '/' + type2 + '?battletype=' + battletype, true);
+request.open('GET', '/pokemon/' + name + '?battletype=' + battletype, true);
 
 request.onload = function () {
-  var object = JSON.parse(this.response);
-  console.log(object);
+  var data = JSON.parse(this.response);
+  pokemon = data.data.attributes;  
+  console.log(pokemon);
 
+  if (battle === 'normal') {
+    var object = pokemon.type_values;
+  } else if (battle === 'inverse') {
+    var object = pokemon.weaknesses;
+  }
+  console.log(object)
+  
   function createTypeContainer(pdiv, id, clss, div_name) {
     div_name.setAttribute('id', id);
     div_name.setAttribute('class', clss);
@@ -23,7 +33,7 @@ request.onload = function () {
   }
 
   function UpperFirstLet(string) {
-    if (string != null){
+    if (string != null) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
   }
@@ -35,35 +45,41 @@ request.onload = function () {
   }
 
   function getKeyByValue(object, value) { 
-    return Object.keys(object).filter(key =>  
-            object[key] === value); 
+    return Object.keys(object).filter(key => 
+            object[key] === value);
   }
   
   function createManyTypeDivs(pdiv, array, div_name) {
     for(let i = 0;i < array.length;i++){
-      div_name = document.createElement('p');
+      div_name = document.createElement('p')
       div_name.setAttribute('id', (array[i]));
       div_name.setAttribute('class', 'type_divs')
-      if (array[i]=== ' ') {
-        pdiv.setAttribute('hidden');
-        pdiv.appendChild(div_name);
-      }
-      else {
-        div_name.textContent = UpperFirstLet(array[i]);
-        pdiv.appendChild(div_name);
-      }
+      div_name.textContent = UpperFirstLet(array[i]);
+      pdiv.appendChild(div_name);
     }
   }
 
   function createSingleTypeDiv(pdiv, type, div_name) {
-      div_name = document.createElement('p');
-      div_name.setAttribute('id', type);
-      div_name.setAttribute('class', 'type_divs');
-      div_name.textContent = UpperFirstLet(type);
-      pdiv.appendChild(div_name);
+    div_name = document.createElement('p');
+    div_name.setAttribute('id', type);
+    div_name.setAttribute('class', 'type_divs');
+    div_name.textContent = UpperFirstLet(type);
+    pdiv.appendChild(div_name);
   }
-  
+
+
   var x = 'value'
+
+  const container = document.createElement('span');
+  container.setAttribute('id', 'img-container');
+  app_left.appendChild(container);
+
+  const container_2 = document.createElement('span');
+  container_2.setAttribute('id', 'name');
+  app_left.appendChild(container_2);
+
+  const container_3 = document.createElement('span');
+  createTypeContainer(app_left, 'type', x, container_3)
 
   const container_4 = document.createElement('span');
   createTypeContainer(app_right, 'vve-tvs', x, container_4);
@@ -82,8 +98,40 @@ request.onload = function () {
 
   const container_9 = document.createElement('span');
   createTypeContainer(app_right, 'ne-tvs', x, container_9);
-  createSingleTypeDiv(app_left, type1);
-  createSingleTypeDiv(app_left, type2);
+
+  const img = document.createElement('img');
+  img.setAttribute('alt', 'pokemon-sprite');
+  img.setAttribute('id', 'sprite');
+  img.setAttribute('class', 'col-xs-2');
+  img.src = pokemon.sprite;
+  container.appendChild(img);
+
+  const ball = document.createElement('img');
+  ball.src = "ball.png";
+  ball.setAttribute('alt', 'pokeball');
+  ball.setAttribute('id', 'ball');
+  container_2.appendChild(ball);
+
+  const dex_num = document.createElement('p');
+  dex_num.setAttribute('id', 'dex-num');
+  dex_num.textContent = '#'+pokemon.dex_num;
+  container_2.appendChild(dex_num);
+
+  const name_val = document.createElement('p');
+  name_val.setAttribute('id', 'name-val')
+  name_val.textContent = UpperFirstLet(pokemon.name);
+  container_2.appendChild(name_val);
+
+  const type_text = document.createElement('p');
+  type_text.setAttribute('id', 'type-text');
+  type_text.textContent = 'Type: ';
+  container_3.appendChild(type_text);
+
+  createSingleTypeDiv(container_3, pokemon.type1);
+
+  if (pokemon.type2 !== 'null') {
+    createSingleTypeDiv(container_3, pokemon.type2);
+  } 
 
   const types_4 = getKeyByValue(object, 4);
   if (types_4.length != 0) {
@@ -140,6 +188,7 @@ request.onload = function () {
     ne_tv_text.textContent = '0x Damage:';
     container_9.appendChild(ne_tv_text);
     createManyTypeDivs(container_9, types_0);
+    
   }
 }
 

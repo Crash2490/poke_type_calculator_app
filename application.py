@@ -6,10 +6,10 @@ from flask_rest_jsonapi import Api, ResourceDetail, ResourceList
 from weakness import weakness
 
 # Create a new Flask application
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 # Set up SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/crash/PycharmProjects/pokemon-api/pokemon.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pokemon.db'
 db = SQLAlchemy(app)
 
 
@@ -78,17 +78,22 @@ def user_detail(name):
 
     schema = PokemonSchema()
     p = Pokemon.query.filter_by(name=name).first()
-    pdict = schema.dump(p).data
+    pdict = schema.dump(p)
+    print(pdict)
 
     return pdict
 
 
-@app.route("/<string:type1>/<string:type2>")
+@app.route("/types/<string:type1>/<string:type2>")
 def get_weakness(type1, type2):
     battletype = request.args.get('battletype')
     if type2 == 'none':
         type2 = 'null'
     return weakness(battletype, type1, type2)
+
+@app.route('/')
+def root():
+    return app.send_static_file('index.html')
 
 # main loop to run app in debug mode
 if __name__ == '__main__':
