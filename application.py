@@ -6,10 +6,12 @@ from flask_rest_jsonapi import Api, ResourceDetail, ResourceList
 from weakness import weakness
 
 # Create a new Flask application
-app = Flask(__name__)
+app = Flask(__name__,
+            static_url_path='', 
+            static_folder='static')
 
 # Set up SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/crash/PycharmProjects/pokemon-api/pokemon.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pokemon.db'
 db = SQLAlchemy(app)
 
 
