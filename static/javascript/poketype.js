@@ -3,7 +3,7 @@ var request = new XMLHttpRequest();
 var names = []
 
 
-request.open('GET', 'http://127.0.0.1:5000/pokemon?page[size]=2000', true);
+request.open('GET', '/pokemon?page[size]=2000', true);
 
 request.onload = function () {
   var data = JSON.parse(this.response);

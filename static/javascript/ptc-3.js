@@ -10,7 +10,7 @@ const battletype = (urlParams.get('battletype'));
 
 var request = new XMLHttpRequest();
 
-request.open('GET', 'http://127.0.0.1:5000/'+ type1 + '/' + type2 + '?battletype=' + battletype, true);
+request.open('GET', '/types/' + type1 + '/' + type2 + '?battletype=' + battletype, true);
 
 request.onload = function () {
   var object = JSON.parse(this.response);

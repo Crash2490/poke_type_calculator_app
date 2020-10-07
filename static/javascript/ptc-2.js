@@ -12,7 +12,7 @@ console.log(battle)
 
 var request = new XMLHttpRequest();
 
-request.open('GET', 'http://127.0.0.1:5000/pokemon/'+ name + '?battletype=' + battletype, true);
+request.open('GET', '/pokemon/' + name + '?battletype=' + battletype, true);
 
 request.onload = function () {
   var data = JSON.parse(this.response);
